@@ -1,3 +1,4 @@
+/*
 package xpvsBohac.vyjimky;
 
 import java.io.*;
@@ -32,3 +33,4 @@ public class ExceptionPractice {
         System.out.println("happy ending");
     }
 }
+*/
