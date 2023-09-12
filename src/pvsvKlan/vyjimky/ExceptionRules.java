@@ -36,14 +36,9 @@ public class ExceptionRules {
         return strings;
     }
 }
+
 class Clovek {
-    @Override
-    public String toString() {
-        return "Clovek se jmenuje " + jmeno + " je vysoky " + vyska + " cm, vazi " + vaha + " kg a je mu " + vek + " let";
-    }
-
     private int vyska, vaha, vek;
-
     /**
      * format JMENO PRIJMENI (jedno prijmeni)
      */
@@ -62,25 +57,31 @@ class Clovek {
 
     public Clovek(int vyska, int vaha, int vek, String jmeno) throws Exception { //contructor
 
-            this.vyska = vyska;
-            if (vyska > 210) {
-                throw new HumanException("spatna vyska");
-            }
-            this.vaha = vaha;
-            if (vaha > 190) {
-                throw new HumanException("spatna vaha");
-            }
-            this.vek = vek;
-            if (vek > 111) {
-                throw new HumanException("spatny vek");
-            }
-            this.jmeno = jmeno;
-            if (!(jmeno.indexOf(" ") == jmeno.lastIndexOf(" "))) {
-                throw new HumanException("spatne jmeno");
-            }
+        this.vyska = vyska;
+        if (vyska > 210) {
+            throw new HumanException("spatna vyska");
+        }
+        this.vaha = vaha;
+        if (vaha > 190) {
+            throw new HumanException("spatna vaha");
+        }
+        this.vek = vek;
+        if (vek > 111) {
+            throw new HumanException("spatny vek");
+        }
+        this.jmeno = jmeno;
+        if (!(jmeno.indexOf(" ") == jmeno.lastIndexOf(" "))) {
+            throw new HumanException("spatne jmeno");
+        }
 
     }
+
+    @Override
+    public String toString() {
+        return "Clovek se jmenuje " + jmeno + " je vysoky " + vyska + " cm, vazi " + vaha + " kg a je mu " + vek + " let";
+    }
 }
+
 class HumanException extends Exception {
     public HumanException(String message) {
         super(message);
