@@ -1,16 +1,18 @@
+package xpvsBohac.vyjimky.exceptionBohac;
+
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ExceptionPractice {
-    public static void sort(int[] data){
+    public static void sort(int[] data) {
         quickSort(data, 0, data.length - 1);
     }
+
     public static void quickSort(int[] data, int start, int end) {
         if (end <= start) return;
         int i = split(data, start, end);
@@ -40,22 +42,48 @@ public class ExceptionPractice {
         return (left);
     }
 
-    static int[] toArray(ArrayList<String> lines){
-        return null;
+    static int[] toArray(List<String> lines) {
+        String textArray = Arrays.toString(lines.toArray());
+        try {
+            int[] array = new int[lines.size()];
+            for (int i = 0; i < lines.size(); i++) {
+                try {
+                    array[i] = Integer.parseInt(lines.get(1));
+                }catch (ExceptionPractice exceptionP){
+                    System.out.println("nevim co spatne");
+                }
+                array[i] = Integer.parseInt(lines.get(i));
+            }
+            return array;
+        } catch (NullPointerException eo) {
+            System.out.println("ctes z listu, kteru neexistuje");
+            return new int[1];
+        }catch (NumberFormatException en){
+            System.out.println("spatne parsovani");
+            return new int[1];
+        }
     }
 
-    static ArrayList<String> readFile(String fileName){
-        ArrayList<String> lines = null;
-//        lines = Files.readAllLines(Paths.get(fileName));
+    static List<String> readFile(String fileName) {
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(Paths.get(fileName));
+        } catch (FileNotFoundException fe) {
+            System.out.println("soubor nenalezen");
+        } catch (IOException e) {
+            System.out.println("chybna prace se souborem");
+        }
         return lines;
     }
 
-    static int countAverage(int[] data){
+    static int countAverage(int[] data) {
 
         return 0;
-    };
+    }
 
-    static void replace(int[] array){
+    ;
+
+    static void replace(int[] array) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Zadej index v poli:");
         int index = sc.nextInt();
@@ -65,15 +93,14 @@ public class ExceptionPractice {
     }
 
 
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int[] first = toArray(readFile("seq"));
         int[] second = toArray(readFile("seq1.txt"));
         int[] third = toArray(readFile("seq2.txt"));
 
         replace(first);
         replace(second);
-        
+
         sort(second);
         sort(third);
 
