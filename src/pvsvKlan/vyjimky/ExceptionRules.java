@@ -27,7 +27,6 @@ public class ExceptionRules {
         vaha = sc.nextLine();
         System.out.println("Zadejte vek");
         vek = sc.nextLine();
-
         System.out.println("Zadejte jmeno a prijmeni");
         jmeno = sc.nextLine();
         sc.close();
