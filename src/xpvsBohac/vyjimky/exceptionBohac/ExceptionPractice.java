@@ -1,9 +1,12 @@
 package xpvsBohac.vyjimky.exceptionBohac;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -30,7 +33,6 @@ public class ExceptionPractice {
                 data[right] = data[left];
                 right--;
             } else break;
-            ;
             while ((pivot < data[right]) && (left < right))
                 right--;
             if (left < right) {
@@ -43,23 +45,19 @@ public class ExceptionPractice {
     }
 
     static int[] toArray(List<String> lines) {
-        String textArray = Arrays.toString(lines.toArray());
+//        String textArray = Arrays.toString(lines.toArray());
         try {
             int[] array = new int[lines.size()];
             for (int i = 0; i < lines.size(); i++) {
                 try {
-                    array[i] = Integer.parseInt(lines.get(1));
-                }catch (ExceptionPractice exceptionP){
-                    System.out.println("nevim co spatne");
+                    array[i] = Integer.parseInt(lines.get(i));
+                } catch (NumberFormatException ne){
+                    System.out.println("Spatne parsovani");
                 }
-                array[i] = Integer.parseInt(lines.get(i));
             }
             return array;
-        } catch (NullPointerException eo) {
-            System.out.println("ctes z listu, kteru neexistuje");
-            return new int[1];
-        }catch (NumberFormatException en){
-            System.out.println("spatne parsovani");
+        } catch (NullPointerException e) {
+            System.out.println("Ctes z listu, ktery neexistuje");
             return new int[1];
         }
     }
@@ -68,10 +66,10 @@ public class ExceptionPractice {
         List<String> lines = null;
         try {
             lines = Files.readAllLines(Paths.get(fileName));
-        } catch (FileNotFoundException fe) {
-            System.out.println("soubor nenalezen");
+        } catch (FileNotFoundException e) {
+            System.out.println("Soubor nenalezen");
         } catch (IOException e) {
-            System.out.println("chybna prace se souborem");
+            System.out.println("Chybna prace se souborem");
         }
         return lines;
     }
@@ -80,8 +78,6 @@ public class ExceptionPractice {
 
         return 0;
     }
-
-    ;
 
     static void replace(int[] array) {
         Scanner sc = new Scanner(System.in);
@@ -98,14 +94,14 @@ public class ExceptionPractice {
         int[] second = toArray(readFile("seq1.txt"));
         int[] third = toArray(readFile("seq2.txt"));
 
-        replace(first);
-        replace(second);
-
-        sort(second);
-        sort(third);
-
-        countAverage(first);
-        countAverage(second);
+//        replace(first);
+//        replace(second);
+//
+//        sort(second);
+//        sort(third);
+//
+//        countAverage(first);
+//        countAverage(second);
         System.out.println("Happy ending");
     }
 }
