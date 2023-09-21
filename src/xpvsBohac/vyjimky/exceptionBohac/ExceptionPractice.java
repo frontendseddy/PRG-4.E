@@ -94,14 +94,14 @@ public class ExceptionPractice {
         int[] second = toArray(readFile("seq1.txt"));
         int[] third = toArray(readFile("seq2.txt"));
 
-//        replace(first);
-//        replace(second);
+        replace(first);
+        replace(second);
 //
-//        sort(second);
-//        sort(third);
+        sort(second);
+        sort(third);
 //
-//        countAverage(first);
-//        countAverage(second);
+        countAverage(first);
+        countAverage(second);
         System.out.println("Happy ending");
     }
 }
