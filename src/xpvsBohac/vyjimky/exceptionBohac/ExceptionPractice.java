@@ -1,13 +1,11 @@
 package xpvsBohac.vyjimky.exceptionBohac;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -75,17 +73,36 @@ public class ExceptionPractice {
     }
 
     static int countAverage(int[] data) {
+        int sum = 0;
+        for (int i = 0; i < data.length; i++) {
+            sum += data[i];
 
+        }
+        try {
+            return sum/ data.length;
+
+        }catch (ArithmeticException arithmeticException) {
+            System.out.println("fuj");
+        }
         return 0;
     }
 
     static void replace(int[] array) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Zadej index v poli:");
-        int index = sc.nextInt();
-        System.out.println("Zadej cislo, ktere do pole chces vlozit:");
-        array[index] = sc.nextInt();
-        sc.close();
+        try {
+            int index = sc.nextInt();
+            System.out.println("Zadej cislo, ktere do pole chces vlozit:");
+            try {
+                array[index] = sc.nextInt();
+            }catch (ArrayIndexOutOfBoundsException exception) {
+                System.out.println("neplatny index v poli");
+            }
+        }catch (InputMismatchException inputMismatchException) {
+            System.out.println("nezadal jste cislo");
+        }
+
+//        sc.close();
     }
 
 
@@ -93,7 +110,9 @@ public class ExceptionPractice {
         int[] first = toArray(readFile("seq"));
         int[] second = toArray(readFile("seq1.txt"));
         int[] third = toArray(readFile("seq2.txt"));
-
+        System.out.println(Arrays.toString(first));
+        System.out.println(Arrays.toString(second));
+        System.out.println(Arrays.toString(third));
         replace(first);
         replace(second);
 //
