@@ -49,7 +49,7 @@ public class ExceptionPractice {
             for (int i = 0; i < lines.size(); i++) {
                 try {
                     array[i] = Integer.parseInt(lines.get(i));
-                } catch (NumberFormatException ne){
+                } catch (NumberFormatException ne) {
                     System.out.println("Spatne parsovani");
                 }
             }
@@ -79,9 +79,9 @@ public class ExceptionPractice {
 
         }
         try {
-            return sum/ data.length;
+            return sum / data.length;
 
-        }catch (ArithmeticException arithmeticException) {
+        } catch (ArithmeticException arithmeticException) {
             System.out.println("fuj");
         }
         return 0;
@@ -95,13 +95,12 @@ public class ExceptionPractice {
             System.out.println("Zadej cislo, ktere do pole chces vlozit:");
             try {
                 array[index] = sc.nextInt();
-            }catch (ArrayIndexOutOfBoundsException exception) {
+            } catch (ArrayIndexOutOfBoundsException exception) {
                 System.out.println("neplatny index v poli");
             }
-        }catch (InputMismatchException inputMismatchException) {
+        } catch (InputMismatchException inputMismatchException) {
             System.out.println("nezadal jste cislo");
         }
-
 //        sc.close();
     }
 
