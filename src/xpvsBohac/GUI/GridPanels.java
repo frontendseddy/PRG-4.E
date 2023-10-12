@@ -40,6 +40,7 @@ public class GridPanels extends JFrame {
         for (int i = 0; i < 9; i++) {
             gridPanel.add(new JButton(String.valueOf(i + 1)));
         }
+        this.add(gridPanel, BorderLayout.CENTER);
     }
 
     public static void main(String[] args) {
