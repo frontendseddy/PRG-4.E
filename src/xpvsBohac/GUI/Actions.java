@@ -32,7 +32,7 @@ public class Actions extends JFrame implements ActionListener{
 
         this.setLayout(null); // ted uz pouzivame x,y souradnice
         button.setText("Press me!");
-        button.setBounds(200, 100, 100, 60);
+        button.setBounds(200, 100, 100, 60); // musi byt layout na null
         button.setFocusable(true);
         button.setEnabled(true);
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); //cursor hover, normal to hand
