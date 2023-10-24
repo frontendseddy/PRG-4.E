@@ -14,7 +14,7 @@ public class test2 extends JFrame implements ActionListener {
 
     public test2() {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(300,350);
+        this.setSize(300, 350);
         this.setLayout(null);
         this.setLocationRelativeTo(null);
 
@@ -71,8 +71,14 @@ public class test2 extends JFrame implements ActionListener {
                 ok.setBackground(Color.red);
             }
         }
-        if (e.getSource() == show){
-            textPass.setBackground(Color.white);
+        if (e.getSource() == show) {
+            if (textPass.getBackground().equals(Color.BLACK)) {
+                show.setText("Unshow");
+                textPass.setBackground(Color.white);
+            } else {
+                show.setText("Show");
+                textPass.setBackground(Color.black);
+            }
         }
     }
 }
