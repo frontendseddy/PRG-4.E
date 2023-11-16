@@ -12,22 +12,26 @@ public class SliderDemo extends JFrame implements ChangeListener {
 
     public SliderDemo() {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(600, 600);
+        this.setSize(420, 600);
         panel = new JPanel();
         label = new JLabel();
         slider = new JSlider(0, 100, 50);
 
-        slider.setPreferredSize(new Dimension(400,420));
+        slider.setPreferredSize(new Dimension(450,200));
         slider.setPaintTicks(true);
         slider.setMinorTickSpacing(10);
+
         slider.setPaintTrack(true);
         slider.setMajorTickSpacing(25);
+        label.setText(slider.getValue() + " vol");
         slider.setPaintLabels(true);
+        slider.setFont(new Font("MV Boli", Font.PLAIN, 15));
         slider.setOrientation(SwingConstants.VERTICAL);
 
+        slider.addChangeListener(this);
+        panel.add(slider);
+        panel.add(label);
         this.add(panel);
-        this.add(label);
-        this.add(slider);
     }
 
     public static void main(String[] args) {
@@ -36,7 +40,7 @@ public class SliderDemo extends JFrame implements ChangeListener {
 
     @Override
     public void stateChanged(ChangeEvent e) {
-
+        label.setText(slider.getValue() + " vol");
     }
 }
 

@@ -47,9 +47,6 @@ public class Actions extends JFrame implements ActionListener{
         label.setForeground(Color.black);
         showButton.addActionListener(this);
 
-
-
-
         this.add(label);
         this.add(showButton);
         this.add(button);
