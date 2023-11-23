@@ -1,4 +1,4 @@
-package dataShowCase;
+/*package dataShowcase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,12 +10,12 @@ public class SortMenu extends JPanel {
     /**
      * Nejdulezitejsi!
      * Tomuto tlacitku pridat posluchac, zadny defaultne nema
-     */
+
     public JButton outputButton;
 
-    public ArrayList<JRadioButton> buttons;
     JRadioButton name, release, rating, duration;
-    JCheckBox reversed;
+
+    public ArrayList<JRadioButton> buttons;
 
     public SortMenu() {
         this.setLayout(new FlowLayout());
@@ -37,18 +37,16 @@ public class SortMenu extends JPanel {
         buttons.add(duration);
 
         JLabel label = new JLabel("Sort by: ");
+
         outputButton = new JButton("Sort!");
-        reversed = new JCheckBox("Reversed!");
 
-
-
-        this.add(reversed);
         this.add(label);
         this.add(name);
         this.add(release);
         this.add(rating);
         this.add(duration);
+
         this.add(outputButton);
     }
 
-}
+}*/

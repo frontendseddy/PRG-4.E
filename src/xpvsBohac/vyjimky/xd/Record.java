@@ -1,4 +1,4 @@
-package dataShowCase;
+/*package dataShowcase;
 
 import java.util.Comparator;
 
@@ -16,17 +16,10 @@ public class Record {
 
     /**
      * @return data objektu tak, aby sla vlozit do JTable
-     */
-    public String[] returnAsTableRow() {
+
+    public String[] returnAsTableRow(){
         return new String[]{name, String.valueOf(yearOfRelease), String.valueOf(rating), String.valueOf(duration)};
     }
-
-    public static Comparator<Record> byDuration = new Comparator<Record>() {
-        @Override
-        public int compare(Record o1, Record o2) {
-            return Double.compare(o1.duration, o2.duration);
-        }
-    };
 
     public static Comparator<Record> byName = new Comparator<Record>() {
         @Override
@@ -48,6 +41,11 @@ public class Record {
             return Double.compare(o1.rating, o2.rating);
         }
     };
-}
 
-
+    public static Comparator<Record> byDuration = new Comparator<Record>() {
+        @Override
+        public int compare(Record o1, Record o2) {
+            return Double.compare(o1.duration, o2.duration);
+        }
+    };
+}*/
