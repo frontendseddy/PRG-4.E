@@ -4,10 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainMenu extends JFrame implements ActionListener{
+public class MainMenu extends JFrame implements ActionListener {
 
     /**
      * Staticka promenna, budeme s ni pracovat i v jinych tridach
@@ -17,7 +20,7 @@ public class MainMenu extends JFrame implements ActionListener{
     JButton tableView, dataView, dataLoad;
     JLabel status;
 
-    MainMenu(){
+    MainMenu() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(new FlowLayout());
@@ -35,10 +38,22 @@ public class MainMenu extends JFrame implements ActionListener{
         dataLoad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    List<String> data = Files.readAllLines(Paths.get("persons_x4.txt"));
+
+                    for (String line : data) {
+                        String[] att = line.split(";");
+                        personData.add(new Person(att[0], att[1], Integer.parseInt(att[2]), Integer.parseInt(att[3]), att[4]));
+                    }
+                } catch (IOException ioException) {
+                    System.err.println(":(");
+                }
+
                 // TODO: Vymyslet obsah
                 status.setText(personData.size() + " records loaded! You can now view the dataset!");
                 tableView.setEnabled(true);
                 dataView.setEnabled(true);
+                dataLoad.setEnabled(false);
                 pack();
             }
         });
@@ -53,17 +68,17 @@ public class MainMenu extends JFrame implements ActionListener{
         this.pack();
     }
 
+    public static void main(String[] args) {
+        MainMenu loader = new MainMenu();
+//        MainMenu.personData.add(new Person("Larry", "Hydinger", 46, 225228, "icon.png"));
+        loader.setVisible(true);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == tableView)
             new TableMenu().setVisible(true);
-        if(e.getSource() == dataView)
+        if (e.getSource() == dataView)
             new CardMenu().setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        MainMenu loader = new MainMenu();
-        MainMenu.personData.add(new Person("Larry","Hydinger",46,225228,"icon.png"));
-        loader.setVisible(true);
     }
 }
