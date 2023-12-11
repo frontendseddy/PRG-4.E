@@ -2,17 +2,18 @@ package hangman;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GameWindow extends JFrame {
-    JLabel label;
-    JPanel panel1, panel2, panel3;
     JProgressBar progressBar;
     JButton submitButton;
     JTextField inputField;
+    SecretLabel label;
 
-    public GameWindow() {
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(500, 700);
+    GameWindow() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(800, 700);
         init();
     }
 
@@ -22,46 +23,66 @@ public class GameWindow extends JFrame {
 
     void init() {
         this.setLayout(new BorderLayout());
-        /*panel1 = new JPanel();
-        panel1.setBackground(Color.red);
-        panel2 = new JPanel();
-        panel2.setBackground(Color.blue);
-        panel3 = new JPanel();
-        panel3.setBackground(Color.green);
-        this.add(panel1, BorderLayout.NORTH);
-        this.add(panel2, BorderLayout.CENTER);
-        this.add(panel3, BorderLayout.EAST);*/
         progressBar = new JProgressBar(0, 10);
         progressBar.setValue(10);
         progressBar.setForeground(Color.red);
         progressBar.setBackground(Color.black);
         progressBar.setPreferredSize(new Dimension(500, 100));
         progressBar.setStringPainted(true);
-        progressBar.setFont(new Font("Arial", Font.BOLD, 36));
-//        progressBar.setValue(5);
-        JPanel tmpPanel = new JPanel();
-        tmpPanel.setBackground(Color.pink);
+        progressBar.setFont(new Font("MV Boli", Font.BOLD, 36));
+
+        label = new SecretLabel();
+        this.add(label, BorderLayout.CENTER);
 
         JPanel inputPanel = new JPanel();
-        inputPanel.setBackground(Color.MAGENTA);
-        inputPanel.setPreferredSize(new Dimension(500, 250));
+        inputPanel.setBackground(Color.blue);
+        inputPanel.setPreferredSize(new Dimension(500, 150));
+        this.add(inputPanel, BorderLayout.SOUTH);
 
-        //input text
+        //input text:
         inputField = new JTextField("TMP");
-        inputField.setFont(new Font("Arial", Font.BOLD, 32));
+        inputField.setFont(new Font("MV Boli", Font.PLAIN, 32));
+        inputField.setHorizontalAlignment(SwingConstants.CENTER);
 
         //button setting
         submitButton = new JButton("Guess");
-        submitButton.setFont(new Font("Arial", Font.BOLD, 32));
+        submitButton.setFont(new Font("MV Boli", Font.PLAIN, 32));
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO: 07.12.2023 Osetrit vstupy
+                makeAGuess(inputField.getText().charAt(0));
+            }
+        });
 
         inputPanel.setLayout(new FlowLayout());
         inputPanel.add(inputField);
         inputPanel.add(submitButton);
 
-
-        this.add(inputPanel, BorderLayout.SOUTH);
-        this.add(tmpPanel, BorderLayout.CENTER);
         this.add(progressBar, BorderLayout.NORTH);
+        this.pack();
+        this.setSize(this.getWidth(), 700);
+    }
 
+    void makeAGuess(char guess) {
+        //aby nebyl pouzit contains() <- ten chce vic CharSequence (vice charu/string)
+        if (label.secret.indexOf(guess) >= 0) {
+            System.out.println("Guess!");
+            label.guessed.add(guess);//pridam do mnoziny uhadnutych pismen
+            label.reprint();
+            this.pack();
+            this.setSize(this.getWidth(), 700);
+            // TODO: 07.12.2023  odhalovani pismen
+
+        } else {
+            progressBar.setValue(progressBar.getValue() - 1);
+            if (progressBar.getValue() < 1) {
+                label.setText("GAME OVER!");
+                //zabrani dalsimu posilani
+                submitButton.setEnabled(false);
+                inputField.setEnabled(false);
+            }
+        }
+        // TODO: 07.12.2023 Ukoncit hru
     }
 }
