@@ -7,20 +7,22 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class SecretLabel extends JLabel {
-
+    int difficulty;
     public List<String> words;
     public String secret;
     public String text;
     HashSet<Character> guessed;
 
-    SecretLabel() {
+    SecretLabel(int difficulty) {
+        this.difficulty = difficulty;
         guessed = new HashSet<>();
         loadWords("secrets.txt");
         Random random = new Random();
-        secret = words.get(random.nextInt(words.size()));
+        secret = words.get(random.nextInt(words.size())).toLowerCase();
         System.out.println("secret is : " + secret);
 
         reprint();

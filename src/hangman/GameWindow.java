@@ -10,15 +10,13 @@ public class GameWindow extends JFrame {
     JButton submitButton;
     JTextField inputField;
     SecretLabel label;
+    int difficulty;
 
-    GameWindow() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    GameWindow(int difficulty) {
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(800, 700);
+        this.difficulty = difficulty;
         init();
-    }
-
-    public static void main(String[] args) {
-        new GameWindow().setVisible(true);
     }
 
     void init() {
@@ -31,7 +29,7 @@ public class GameWindow extends JFrame {
         progressBar.setStringPainted(true);
         progressBar.setFont(new Font("MV Boli", Font.BOLD, 36));
 
-        label = new SecretLabel();
+        label = new SecretLabel(4);
         this.add(label, BorderLayout.CENTER);
 
         JPanel inputPanel = new JPanel();
@@ -51,7 +49,14 @@ public class GameWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO: 07.12.2023 Osetrit vstupy
-                makeAGuess(inputField.getText().charAt(0));
+                if (inputField.getText().length() > 1) {
+                    incorrect(2);
+                }else {
+                    makeAGuess(inputField.getText().charAt(0));
+                    char c = inputField.getText().charAt(0);
+                    makeAGuess(Character.toLowerCase(c));
+                }
+                inputField.setText("");
             }
         });
 
@@ -72,6 +77,14 @@ public class GameWindow extends JFrame {
             label.reprint();
             this.pack();
             this.setSize(this.getWidth(), 700);
+            if (!label.text.contains("_")){
+                submitButton.setEnabled(false);
+                inputField.setEnabled(false);
+                progressBar.setForeground(Color.yellow);
+                progressBar.setValue(10);
+                progressBar.setStringPainted(true);
+                progressBar.setString("Winner");
+            }
             // TODO: 07.12.2023  odhalovani pismen
 
         } else {
@@ -83,6 +96,14 @@ public class GameWindow extends JFrame {
                 inputField.setEnabled(false);
             }
         }
-        // TODO: 07.12.2023 Ukoncit hru
+    }
+    private void incorrect(int toRemove){
+        progressBar.setValue(progressBar.getValue() - 1);
+        if (progressBar.getValue() < 1) {
+            label.setText("GAME OVER!");
+            //zabrani dalsimu posilani
+            submitButton.setEnabled(false);
+            inputField.setEnabled(false);
+        }
     }
 }
