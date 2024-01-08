@@ -1,6 +1,8 @@
 package hangman;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +30,27 @@ public class MainWindow extends JFrame {
         sliderPanel.add(difficultySlider);
         sliderPanel.add(difficultyLabel);
 
+        difficultyLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        difficultyLabel.setVerticalAlignment(SwingConstants.CENTER);
+        difficultyLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        sliderPanel.add(difficultySlider);
+
+        difficultySlider.setPaintTicks(true);
+        difficultySlider.setMinorTickSpacing(1);
+        difficultySlider.setPaintTrack(true);
+        difficultySlider.setMajorTickSpacing(2);
+        difficultySlider.setPaintLabels(true);
+
+        difficultySlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("moved");
+                difficultyLabel.setText("difficulty: " + difficultySlider.getValue());
+
+            }
+        });
+
+        difficultyLabel.setText("difficulty: " + difficultySlider.getValue());
 
 
         startButton.addActionListener(new ActionListener() {
