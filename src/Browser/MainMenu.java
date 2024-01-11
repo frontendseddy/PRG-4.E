@@ -20,7 +20,7 @@ public class MainMenu extends JFrame implements ActionListener {
     JButton tableView, dataView, dataLoad;
     JLabel status;
 
-    MainMenu() {
+    public MainMenu() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(new FlowLayout());
@@ -68,9 +68,13 @@ public class MainMenu extends JFrame implements ActionListener {
         this.pack();
     }
 
-    public static void main(String[] args) {
-        MainMenu loader = new MainMenu();
+    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+//        UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarkLaf");
+        UIManager.setLookAndFeel("com.formdev.flatlaf.themes.FlatMacDarkLaf");
+//        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        System.out.println(UIManager.getSystemLookAndFeelClassName());
 //        MainMenu.personData.add(new Person("Larry", "Hydinger", 46, 225228, "icon.png"));
+        MainMenu loader = new MainMenu();
         loader.setVisible(true);
     }
 

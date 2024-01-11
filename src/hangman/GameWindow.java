@@ -38,7 +38,7 @@ public class GameWindow extends JFrame {
         this.add(inputPanel, BorderLayout.SOUTH);
 
         //input text:
-        inputField = new JTextField("TMP");
+        inputField = new JTextField(" TMP");
         inputField.setFont(new Font("MV Boli", Font.PLAIN, 32));
         inputField.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -56,7 +56,7 @@ public class GameWindow extends JFrame {
                     char c = inputField.getText().charAt(0);
                     makeAGuess(Character.toLowerCase(c));
                 }
-                inputField.setText("");
+                inputField.setText(" ");
             }
         });
 
