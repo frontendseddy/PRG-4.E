@@ -66,7 +66,7 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO: 08.01.2024 secret insert
                 try {
-                    new nextWindow();
+                    new nextWindow().setVisible(true);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }

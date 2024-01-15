@@ -31,7 +31,7 @@ public class SimonWindow extends JFrame {
             }
         });
         JButton resetBTN = new JButton("RESET");
-        
+
         gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(3, 3));
 
