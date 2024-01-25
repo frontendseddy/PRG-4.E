@@ -1,4 +1,4 @@
-package pvsvKlan;
+package pvsv;
 
 public class mainpvsv {
 }

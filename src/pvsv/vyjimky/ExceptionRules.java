@@ -1,4 +1,4 @@
-package pvsvKlan.vyjimky;
+package pvsv.vyjimky;
 
 import java.util.Scanner;
 
