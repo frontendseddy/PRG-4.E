@@ -1,8 +1,9 @@
-package threads;
-
+package pvsv.Threads;
+//        seznam procesů po sobě jdoucí
+//        sada intrukcí, které můžou být spuštěný
 import java.util.Arrays;
 
-public class Basics{
+public class Basics_Bohac{
 
     public static void main(String[] args) {
 
