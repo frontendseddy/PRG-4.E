@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.Scanner;
 
 public class IOMess{
+
         public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
             String scanInput = "";
@@ -23,7 +24,6 @@ public class IOMess{
                 }
             };
             Thread clock = new Thread(miniThread);
-
             clock.setDaemon(true);//skonci, pokud skonci main
             clock.start();
             StringBuilder stringBuilder = new StringBuilder();
@@ -34,7 +34,7 @@ public class IOMess{
                 System.out.println(stringBuilder.toString());
                 stringBuilder.setLength(0);
             }
-//        clock.interrupt();
+            clock.interrupt();
             System.out.println("Happy ending?");
         }
 }
