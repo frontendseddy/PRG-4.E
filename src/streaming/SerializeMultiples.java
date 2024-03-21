@@ -60,11 +60,11 @@ public class SerializeMultiples {
 
             in.close();
             fileIn.close();
-            System.out.println("Deserialized");
+
         } catch (IOException | ClassNotFoundException e){
             System.out.println(e.getMessage());
         }
-
+        System.out.println("Deserialized");
         return deserialized;
     }
 
