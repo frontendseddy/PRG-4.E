@@ -5,7 +5,11 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class Computers {
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//
+//    }
+
+    public void spusteni() {
         ArrayList<Computer> computers = new ArrayList<>();
         Computer a = new Computer("HP", 16, 4.1);
         Computer b = new Computer("Dell", 32, 4.6);
@@ -27,6 +31,7 @@ public class Computers {
         System.out.println(computers);
     }
 }
+
 class Computer implements Comparable<Computer>{
     String name;
     int RAM;

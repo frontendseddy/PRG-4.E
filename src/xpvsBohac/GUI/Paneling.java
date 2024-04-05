@@ -7,7 +7,7 @@ public class Paneling extends JFrame {
     public Paneling(){
         this.setSize(750, 750);
         this.setLayout(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JPanel redPanel = new JPanel();
         redPanel.setBackground(new Color(250, 0, 0));
         redPanel.setBounds(0,0,250,250);
