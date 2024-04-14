@@ -17,7 +17,8 @@ public class MyHub extends JFrame implements ActionListener {
         this.setSize(700,400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-//        design();
+        this.setTitle("Maturita HUB");
+        this.setIconImage(new ImageIcon("avatars\\13.png").getImage());
 
         hublabel = new JLabel();
         hublabel.setText("Maturita Hub");
