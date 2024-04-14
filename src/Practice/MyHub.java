@@ -32,28 +32,28 @@ public class MyHub extends JFrame implements ActionListener {
         multiplePanel.setOpaque(true);
         this.add(multiplePanel);
 
-        ex1 = new JButton("Ukol1");
+        ex1 = new JButton("Parsing");
 //        ex1.setBackground(Color.red);
         ex1.setOpaque(true);
         ex1.addActionListener(this);
 //        ex1.setFocusable(false);
 
-        ex2 = new JButton("Ukol2");
+        ex2 = new JButton("Interface");
 //        ex2.setBackground(Color.magenta);
         ex2.setOpaque(true);
         ex2.addActionListener(this);
 
-        ex3 = new JButton("Ukol3");
+        ex3 = new JButton("Exception");
 //        ex3.setBackground(Color.green);
         ex3.setOpaque(true);
         ex3.addActionListener(this);
 
-        ex4 = new JButton("Ukol4");
+        ex4 = new JButton("Files");
 //        ex4.setBackground(Color.blue);
         ex4.setOpaque(true);
         ex4.addActionListener(this);
 
-        ex5 = new JButton("Ukol5");
+        ex5 = new JButton("GUI");
 //        ex5.setBackground(Color.orange);
         ex5.setOpaque(true);
         ex5.addActionListener(this);

@@ -33,11 +33,6 @@ public class test {
         for (int i = 0; i < 10; i++) {
             System.out.println(countriesArrayList.get(i));
         }
-
-
-
-
-
     }
 }
 class Countries{
@@ -65,8 +60,6 @@ class Countries{
             return Integer.compare(o1.people, o2.people);
         }
     };
-
-
     public Countries(String name, String continent, int people, double year) {
         this.name = name;
         this.continent = continent;
