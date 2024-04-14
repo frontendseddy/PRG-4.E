@@ -93,17 +93,16 @@ public class MyHub extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ex1){
             System.out.println(ex1.getText() + " byl spuštěn!");
-            new Paneling().setVisible(true);
+            new test().run();
 
         }
         if (e.getSource() == ex2){
             System.out.println(ex2.getText() + " byl spuštěn!");
-            new Computers().spusteni();
+            new Computers().run();
 
         }
         if (e.getSource() == ex3){
             System.out.println(ex3.getText() + " nema nic ke spusteni");
-
 
         }
         if (e.getSource() == ex4){
@@ -112,9 +111,8 @@ public class MyHub extends JFrame implements ActionListener {
 
         }
         if (e.getSource() == ex5){
-            System.out.println(ex5.getText() + " nema nic ke spusteni");
-
-
+            System.out.println(ex5.getText() + " byl spuštěn!");
+            new Paneling().setVisible(true);
         }
     }
 }

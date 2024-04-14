@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class test {
-    public static void main(String[] args) {
+    public void run(){
         ArrayList<Countries> countriesArrayList = new ArrayList<>();
         try {
             List<String> lines = Files.readAllLines(Paths.get("countries.txt"));
