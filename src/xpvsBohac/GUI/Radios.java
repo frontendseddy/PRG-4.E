@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class Radios extends JFrame {
     public Radios() {
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new FlowLayout());
 
         JRadioButton mc = new JRadioButton("McDonald's");
@@ -49,5 +49,9 @@ public class Radios extends JFrame {
         });
         this.add(button);
         this.pack();
+    }
+
+    public static void main(String[] args) {
+        new Radios().setVisible(true);
     }
 }

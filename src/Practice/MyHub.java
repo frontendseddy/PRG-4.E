@@ -1,7 +1,6 @@
 package Practice;
 
 import xpvsBohac.GUI.Paneling;
-import xpvsBohac.GUI.Radios;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +35,7 @@ public class MyHub extends JFrame implements ActionListener {
 //        ex1.setBackground(Color.red);
         ex1.setOpaque(true);
         ex1.addActionListener(this);
-//        ex1.setFocusable(false);
+        ex1.setFocusable(false);
 
         ex2 = new JButton("Interface");
 //        ex2.setBackground(Color.magenta);
@@ -103,16 +102,18 @@ public class MyHub extends JFrame implements ActionListener {
 
         }
         if (e.getSource() == ex3){
-            System.out.println(ex3.getText() + " byl spuštěn!");
-            new Radios().setVisible(true);
+            System.out.println(ex3.getText() + " nema nic ke spusteni");
+
 
         }
         if (e.getSource() == ex4){
             System.out.println(ex4.getText() + " nema nic ke spusteni");
 
+
         }
         if (e.getSource() == ex5){
             System.out.println(ex5.getText() + " nema nic ke spusteni");
+
 
         }
     }
