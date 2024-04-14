@@ -18,7 +18,8 @@ public class test {
             String[] attributes;
             for (String line : lines) {
                 attributes = line.split(";");
-                country = new Countries(attributes[0], attributes[1], Integer.parseInt(attributes[2]), Double.parseDouble(attributes[3]));
+                country = new Countries(attributes[0], attributes[1],
+                        Integer.parseInt(attributes[2]), Double.parseDouble(attributes[3]));
                 countriesArrayList.add(country);
             }
         } catch (IOException e) {
