@@ -58,9 +58,10 @@ public class MyHub extends JFrame implements ActionListener {
         ex4.addActionListener(this);
 
         ex5 = new JButton("GUI");
-        ex5.setBackground(new Color(0xf5d4b7));
-        ex5.setOpaque(true);
-        ex5.setFont(new Font("Aptos", Font.BOLD, 20));
+//        ex5.setBackground(new Color(0xf5d4b7));
+//        ex5.setOpaque(true);
+//        ex5.setFont(new Font("Aptos", Font.BOLD, 20));
+        buttonDesign(ex5, new Color(0xf5d4b7), new Font("Aptos", Font.BOLD, 20));
         ex5.addActionListener(this);
 
         multiplePanel.add(ex1);
@@ -73,6 +74,11 @@ public class MyHub extends JFrame implements ActionListener {
     public static void main(String[] args) {
         new MyHub().setVisible(true);
 
+    }
+    void buttonDesign(JButton ex, Color color, Font font){
+        ex.setBackground(color);
+        ex.setOpaque(true);
+        ex.setFont(font);
     }
 
     public void design() {
@@ -102,7 +108,7 @@ public class MyHub extends JFrame implements ActionListener {
         if (e.getSource() == ex3) {
             System.out.println(ex3.getText() + " byl spuštěn!");
             try {
-                new myNewException().run();
+                new practiceException().run();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
