@@ -2,6 +2,7 @@ package dbworks;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Connection;
 
 public class DBrowser extends JFrame {
     JRadioButton readButton, editButton;
@@ -9,6 +10,12 @@ public class DBrowser extends JFrame {
     JLabel codeLabel, nameLabel, headLabel, popLabel, modeLabel;
     JTextField codeField, nameField, headField, popField;
     JButton previous, next;
+    Connection connection;
+
+    DBrowser(Connection connection) {
+        this();
+        this.connection = connection; // pripoj form k DB
+    }
 
     DBrowser(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -16,6 +23,7 @@ public class DBrowser extends JFrame {
         this.setTitle("DB browse");
         this.setLayout(new GridLayout(6,2));
         initializeComponents();//!!
+
 
         this.add(codeLabel);
         this.add(codeField);
