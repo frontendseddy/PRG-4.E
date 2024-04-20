@@ -100,7 +100,12 @@ public class MyHub extends JFrame implements ActionListener {
             new Computers().run();
         }
         if (e.getSource() == ex3) {
-            System.out.println(ex3.getText() + " nema nic ke spusteni");
+            System.out.println(ex3.getText() + " byl spuštěn!");
+            try {
+                new myNewException().run();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
         if (e.getSource() == ex4) {
             new MainMenu().setVisible(true);

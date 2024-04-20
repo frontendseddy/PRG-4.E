@@ -1,5 +1,4 @@
-/*
-package xpvsBohac.vyjimky;
+/*package xpvsBohac.vyjimky;
 
 import java.io.*;
 import java.nio.Buffer;
@@ -32,5 +31,4 @@ public class ExceptionPractice {
         }
         System.out.println("happy ending");
     }
-}
-*/
+}*/
