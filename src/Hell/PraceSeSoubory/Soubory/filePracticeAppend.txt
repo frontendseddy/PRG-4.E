@@ -1,0 +1,6 @@
+---src\PraceSeSoubory\Soubory\hobit.txt---
+Line: 14
+Words: 227
+Char: 1353
+Paragraphs: 1
+Sentences: 7

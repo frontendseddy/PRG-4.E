@@ -9,7 +9,7 @@ import java.util.List;
 //filePractice contains counting of characters, words, paragrahps, sentences, lines and appending
 
 public class filePractice2 {
-    public static void main(String[] args) {
+    void run() {
         String inPath = "Tracks.txt";
         String outPath = "filePracticeAppend.txt";
         int charCount = 0;

@@ -1,4 +1,4 @@
-package Practice;
+package Hell.PraceSeSoubory;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -8,10 +8,10 @@ import java.util.List;
 //Important
 //filePractice contains counting of characters, words, paragrahps, sentences, lines and appending
 
-public class filePractice1 {
-    void run() {
-        String inPath = "Movies.txt";
-        String outPath = "filePracticeAppend.txt";
+public class filePractice2 {
+    public filePractice2() {
+        String inPath = "src\\PraceSeSoubory\\Soubory\\hobit.txt";
+        String outPath = "src\\PraceSeSoubory\\Soubory\\filePracticeAppend.txt";
         int charCount = 0;
         int wordCount = 0;
         int paragraphs = 0;
@@ -47,6 +47,7 @@ public class filePractice1 {
             pw.println("Paragraphs: " + (paragraphs + 1));
             pw.println("Sentences: " + sentences);
             pw.close();
+            System.out.println("OK");
         } catch (IOException e) {
             e.printStackTrace();
         }
