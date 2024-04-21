@@ -25,7 +25,6 @@ public class MyHub extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setTitle("KFC HUB");
         this.setIconImage(new ImageIcon("kfc_logo.jpg").getImage());
-
 //        design();
 
         hublabel = new JLabel();

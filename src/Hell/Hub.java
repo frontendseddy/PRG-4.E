@@ -1,10 +1,11 @@
 package Hell;
 
-import GUI.GUIComponents;
-import Interface.Computers;
-import Parsing.Parsing4;
-import Exception.myNewException;
-import PraceSeSoubory.filePractice2;
+
+import Hell.Exception.myNewException;
+import Hell.GUI.GUIComponents;
+import Hell.Interface.Computers;
+import Hell.Parsing.Parsing4;
+import Hell.PraceSeSoubory.filePractice2;
 
 import javax.swing.*;
 import java.awt.*;
