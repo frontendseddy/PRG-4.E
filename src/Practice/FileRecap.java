@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Recap {
+public class FileRecap {
 
     static void tree1(File file) {
         //projeti celeho adresare
